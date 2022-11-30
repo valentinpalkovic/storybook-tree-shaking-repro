@@ -7,6 +7,19 @@ module.exports = {
     publicPath: "",
   },
   watchOptions: { ignored: /node_modules/ },
+  resolve: {
+    extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx", ".json", ".cjs"],
+    modules: ["node_modules"],
+    mainFields: ["browser", "module", "main"],
+  },
+  optimization: {
+    splitChunks: { chunks: "all" },
+    runtimeChunk: true,
+    sideEffects: true,
+    usedExports: true,
+    moduleIds: "named",
+  },
+  performance: { hints: "warning" },
   module: {
     rules: [
       { test: /\.m?js$/, type: "javascript/auto" },
